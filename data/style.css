@@ -1,29 +1,55 @@
-body {
-  background-color: #f0f4f8;
-  font-family: 'Segoe UI', sans-serif;
+/* Fond blanc global */
+html, body {
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  font-family: Arial, sans-serif;
 }
 
-.container {
+/* Bloc horloge */
+.datetime {
+  background-color: #000000;       /* rectangle noir */
+  color: #ff3333;                  /* rouge vif façon affiche digitale */
+  border: 3px solid #003cff;       /* contour bleu ciel */
+  border-radius: 8px;              /* coins légèrement arrondis */
+  padding: 20px 30px;
+  display: inline-block;
   text-align: center;
-  background-color: #ffffff;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 50px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6); /* ombre portée */
 }
 
-h1 {
-  color: #2c3e50;
-  font-size: 2.5em;
-  margin-bottom: 20px;
+/* Ligne date */
+.datetime .date {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  text-transform: capitalize; /* première lettre en majuscule */
 }
 
-p {
-  color: #34495e;
-  font-size: 1.2em;
+/* Ligne heure */
+.datetime .time {
+  font-size: 2.2rem;
+  font-weight: bold;
+  letter-spacing: 2px; /* espacement façon affiche LED */
+}
+
+/* Police digitale (Orbitron via Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+.datetime {
+  font-family: 'Orbitron', monospace;
+}
+
+/* Clignotement des deux-points */
+.blink {
+  animation: blink 1s steps(1, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    visibility: hidden;
+  }
 }

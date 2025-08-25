@@ -2,41 +2,15 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Horloge ESP32</title>
-  <style>
-    body {
-      background-color: #000;
-      color: #0f0;
-      font-family: 'Courier New', monospace;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    #clock {
-      font-size: 120px;
-      font-weight: bold;
-    }
-  </style>
+  <title>Horloge Digitale</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <div id="clock">--:--:--</div>
+  <div class="datetime" id="datetime">
+    <div class="date"></div>
+    <div class="time"></div>
+  </div>
 
-  <script>
-    // 🔁 Fonction pour interroger /time toutes les secondes
-    async function fetchTime() {
-      try {
-        const res = await fetch("/time");
-        const time = await res.text();
-        document.getElementById("clock").textContent = time;
-      } catch (e) {
-        document.getElementById("clock").textContent = "Erreur";
-      }
-    }
-
-    setInterval(fetchTime, 1000); // Mise à jour toutes les secondes
-    fetchTime(); // Appel initial
-  </script>
+  <script src="/script.js"></script>
 </body>
 </html>
