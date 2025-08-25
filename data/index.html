@@ -2,13 +2,41 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>ESP32 - Page d'accueil</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Horloge ESP32</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #clock {
+      font-size: 120px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Bienvenue sur votre ESP32 🚀</h1>
-    <p>Ce serveur web est opérationnel et prêt à recevoir vos capteurs.</p>
-  </div>
+  <div id="clock">--:--:--</div>
+
+  <script>
+    // 🔁 Fonction pour interroger /time toutes les secondes
+    async function fetchTime() {
+      try {
+        const res = await fetch("/time");
+        const time = await res.text();
+        document.getElementById("clock").textContent = time;
+      } catch (e) {
+        document.getElementById("clock").textContent = "Erreur";
+      }
+    }
+
+    setInterval(fetchTime, 1000); // Mise à jour toutes les secondes
+    fetchTime(); // Appel initial
+  </script>
 </body>
 </html>

@@ -18,7 +18,7 @@ Ce projet est un mémo personnel pour garder une trace de mon premier test ESP32
 
 Architecture-modulaire-avec-WiFi-et-capteurs-ES
 
-P32/
+ESP32/
 ├── data/
 │   └── index.html
 ├── src/
