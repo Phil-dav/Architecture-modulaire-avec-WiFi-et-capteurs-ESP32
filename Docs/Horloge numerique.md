@@ -17,12 +17,12 @@ Le séparateur central (entre heures et minutes) clignote pour imiter une vraie 
 
 ## 📂 Structure du projet
 
-```
+
 .
 ├── index.html   # Structure HTML
 ├── style.css    # Styles et animations
 └── script.js    # Logique d'affichage de la date et de l'heure
-```
+
 
 ---
 
