@@ -1,6 +1,3 @@
-Bien joué Philippe ! Voici un fichier `README.md` complet, clair et bien structuré, qui documente ton premier programme ESP32 avec serveur web WiFi. Il inclut la procédure, les codes essentiels, et une section pour ta capture d’écran.
-
----
 
 ```markdown
 # 🌐 Premier test ESP32 : Serveur Web avec WiFi
@@ -19,8 +16,9 @@ Ce projet est un mémo personnel pour garder une trace de mon premier test ESP32
 
 ## 📂 Structure du projet
 
-```
-Architecture-modulaire-avec-WiFi-et-capteurs-ESP32/
+Architecture-modulaire-avec-WiFi-et-capteurs-ES
+
+P32/
 ├── data/
 │   └── index.html
 ├── src/
@@ -29,9 +27,7 @@ Architecture-modulaire-avec-WiFi-et-capteurs-ESP32/
 │   └── capture_web.png
 ├── README.md
 └── .gitignore
-```
 
----
 
 ## 🔌 Étapes de mise en route
 
