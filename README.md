@@ -26,15 +26,14 @@ Je bosse avec Copilot pour garder une trace claire de mes choix, mes codes, et m
 
 ## 📁 Arborescence du projet
 
-```
-esp32-projet-modulaire/
-├── src/               ← Code source ESP32
-├── include/           ← Fichiers d’en-tête
-├── data/              ← Interface web (HTML/CSS/JS)
-├── lib/               ← Librairies tierces
-├── docs/              ← Journal technique et documentation
-└── README.md          ← Ce fichier
-```
+esp32-projet-modulaire  
+├── src/                 → Code source ESP32  
+│   ├── include/         → Fichiers d’en-tête  
+│   └── data/            → Interface web (HTML, CSS/JS)  
+├── lib/                 → Libraries tierces  
+├── docs/                → Journal technique et documentation  
+└── README.md            → Ce fichier
+
 
 ## 🚀 Objectifs
 
