@@ -34,13 +34,15 @@ Voici la **proposition de mapping GPIO ESP32 (sécurisé au boot)**, entièremen
 - **I²C partagé** : simplifie le câblage OLED + PCF8574
 - **Modularité** : si tu changes de PCB ou de câblage, tu modifies uniquement `config.h` et `pcf8574_config.h`
 
-🔄 Tableau de migration ESP8266 → ESP32
-N° Pin ESP8266	Nom ESP8266	Désignation	GPIO ESP32 recommandé	Remarques techniques
-1	A0	Capteur niveau eau (analogique)	34	Entrée ADC1_CH6, stable au boot
-29	D1	SCL (bus I²C)	22	Bus I²C standard ESP32
-28	D2	SDA (bus I²C)	21	Bus I²C standard ESP32
-19	TX0	Liaison série TX	17	TX2 (UART2) pour GPS
-18	RX0	Liaison série RX	16	RX2 (UART2) pour GPS
-15	VIN	Alimentation 3	5V ou Vin	ESP32 alimenté en 5V régulé
-22	D6	DS18B20 (température eau)	4	GPIO stable, supporte 1-Wire
-—	D5	DHT11 (température/air)	32	GPIO stable, compatible avec DHTesp
+# 🔄 Tableau de migration ESP8266 → ESP32
+
+| N° Pin ESP8266 | Nom ESP8266 | Désignation                        | GPIO ESP32 recommandé | Remarques techniques                              |
+|----------------|-------------|------------------------------------|-----------------------|---------------------------------------------------|
+| 1              | A0          | Capteur niveau eau (analogique)    | 34                    | Entrée ADC1_CH6, stable au boot                   |
+| 29             | D1          | SCL (bus I²C)                      | 22                    | Bus I²C standard ESP32                            |
+| 28             | D2          | SDA (bus I²C)                      | 21                    | Bus I²C standard ESP32                            |
+| 19             | TX0         | Liaison série TX                   | 17                    | TX2 (UART2) pour GPS                              |
+| 18             | RX0         | Liaison série RX                   | 16                    | RX2 (UART2) pour GPS                              |
+| 15             | VIN         | Alimentation 3                     | 5V ou Vin             | ESP32 alimenté en 5V régulé                       |
+| 22             | D6          | DS18B20 (température eau)          | 4                     | GPIO stable, supporte 1-Wire                      |
+| —              | D5          | DHT11 (température/air)            | 32                    | GPIO stable, compatible avec DHTesp               |
