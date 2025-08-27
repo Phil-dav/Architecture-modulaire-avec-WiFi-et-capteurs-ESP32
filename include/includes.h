@@ -12,6 +12,7 @@
 #include <Wire.h>
 #include <SPI.h>
 #include <time.h>
+#include <SPIFFS.h>
 
 /************************************************
  * Réseau & serveur web
@@ -26,7 +27,8 @@
 #include <PCF8574.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
-
+#include "pcf8574_config.h"
+#include "oled_display.h"
 /************************************************
  * Capteurs
  ************************************************/
@@ -43,4 +45,4 @@
  * Fichiers de configuration
  ************************************************/
 #include "config.h"
-#include "pcf8574_config.h"
+

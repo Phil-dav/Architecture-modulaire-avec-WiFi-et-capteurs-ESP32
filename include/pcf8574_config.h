@@ -1,4 +1,9 @@
 #pragma once
+#define PCF8574_ADDR 0x20  // ou l'adresse réelle de ton module
+
+// État logique des relais (LOW = actif si câblage inverse)
+#define RELAY_ACTIVE_STATE LOW
+#define RELAY_INACTIVE_STATE HIGH
 
 // Mapping des broches PCF8574
 #define PCF_PIN_RELAY_1       0
