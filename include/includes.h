@@ -15,6 +15,7 @@
 #include <DallasTemperature.h>
 #include <DHTesp.h>
 #include <TinyGPSPlus.h>
+#include "web_utils.h"
 
 #include "config.h"
 #include "pcf8574_config.h"

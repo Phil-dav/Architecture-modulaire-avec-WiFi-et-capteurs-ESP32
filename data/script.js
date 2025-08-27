@@ -1,3 +1,4 @@
+//data/script.js
 function updateDateTime() {
   const now = new Date();
 

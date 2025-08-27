@@ -24,6 +24,8 @@ void setup() {
 
     initWiFi(WIFI_SSID, WIFI_PASSWORD);
     initTime();
+    startWebServer();
+
 
     displayTwoLines("WiFi: " + String(WiFi.isConnected() ? "OK" : "KO"),
                     getFormattedTime());
