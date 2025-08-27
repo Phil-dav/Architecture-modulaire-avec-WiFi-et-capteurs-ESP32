@@ -1,4 +1,4 @@
-// secrets.h
+// include/secrets.h (exemple - NE PAS COMMIT tes vrais secrets)
 #pragma once
 
 #define WIFI_SSID "TP-Link_Extender"

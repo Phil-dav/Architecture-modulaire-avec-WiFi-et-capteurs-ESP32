@@ -1,48 +1,33 @@
-/**
- * @file includes.h
- * @brief Centralisation des bibliothèques utilisées dans le projet ESP32 piscine
- */
-
+// include/includes.h
 #pragma once
 
-/************************************************
- * Base Arduino & communication
- ************************************************/
+/******** Base Arduino ********/
 #include <Arduino.h>
 #include <Wire.h>
 #include <SPI.h>
 #include <time.h>
-#include <SPIFFS.h>
 
-/************************************************
- * Réseau & serveur web
- ************************************************/
+/******** Réseau & Web ********/
 #include <WiFi.h>
 #include <ESPAsyncWebServer.h>
 #include <AsyncTCP.h>
 
-/************************************************
- * Gestion I2C & périphériques
- ************************************************/
-#include <PCF8574.h>
+/******** FS ********/
+#include <FS.h>
+#include <SPIFFS.h>   // passe à <LittleFS.h> si tu passes à LittleFS
+
+/******** I2C & affichage ********/
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
-#include "pcf8574_config.h"
-#include "oled_display.h"
-/************************************************
- * Capteurs
- ************************************************/
+
+/******** Capteurs ********/
 #include <OneWire.h>
 #include <DallasTemperature.h>
 #include <DHTesp.h>
 
-/************************************************
- * GPS
- ************************************************/
+/******** GPS ********/
 #include <TinyGPSPlus.h>
 
-/************************************************
- * Fichiers de configuration
- ************************************************/
+/******** Config projet ********/
 #include "config.h"
-
+#include "pcf8574_config.h"

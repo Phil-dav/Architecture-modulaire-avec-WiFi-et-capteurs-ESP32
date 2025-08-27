@@ -1,64 +1,42 @@
+// src/main.cpp
 #include "includes.h"
+#include "wifi_utils.h"
+#include "time_utils.h"
+#include "pcf8574_driver.h"
 #include "oled_display.h"
-
-
-AsyncWebServer server(80);
+#include "secrets.h"  // définis WIFI_SSID / WIFI_PASSWORD
 
 void setup() {
-  Serial.begin(115200);
+    Serial.begin(115200);
+    delay(100);
+
+    // I2C + PCF
     pcf_init();
-    connectToWiFi();
-    initTime();
-  // Initialisation du système de fichiers SPIFFS
-  if (!SPIFFS.begin(true)) {
-    Serial.println("❌ Erreur SPIFFS");
-    return;
-  }
 
-  // Connexion WiFi et synchronisation NTP
-  initWiFi(WIFI_SSID, WIFI_PASSWORD);
-  initTime();
+    // OLED
+    initOLED();
+    displayMessage("Boot...");
 
-  // Route principale : page HTML
-  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
-    request->send(SPIFFS, "/index.html", "text/html");
-  });
-
-  // Route pour l'heure
-  server.on("/time", HTTP_GET, [](AsyncWebServerRequest *request){
-    request->send(200, "text/plain", getFormattedTime());
-  });
-
-  // Route pour le fichier CSS
-  server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request){
-    request->send(SPIFFS, "/style.css", "text/css");
-  });
-
-  // Route pour le fichier JavaScript
-  server.on("/script.js", HTTP_GET, [](AsyncWebServerRequest *request){
-    request->send(SPIFFS, "/script.js", "application/javascript");
-  });
-
-  // Démarrage du serveur
-  server.begin();
-  Serial.println("🌐 Serveur web lancé");
-
-  Wire.begin(21, 22); // SDA, SCL
-  initDisplay();      // Initialisation OLED
-
-   /* Serial.println("\nI2C Scanner");
-  for (byte address = 1; address < 127; address++) {
-    Wire.beginTransmission(address);
-    if (Wire.endTransmission() == 0) {
-      Serial.print("Found I2C device at 0x");
-      Serial.println(address, HEX);
+    // FS
+    if (!SPIFFS.begin(true)) {
+        Serial.println("SPIFFS KO (formatage force)");
+    } else {
+        Serial.println("SPIFFS OK");
     }
-  }*/
+
+    // WiFi + NTP
+    initWiFi(WIFI_SSID, WIFI_PASSWORD);
+    initTime();
+
+    displayTwoLines("WiFi: " + String(WiFi.status() == WL_CONNECTED ? "OK" : "KO"),
+                    getFormattedTime());
 }
 
 void loop() {
-  String heure = getFormattedTime();
-  updateDisplay(heure);
-  delay(1000); // Mise à jour toutes les secondes
+    static uint32_t last = 0;
+    if (millis() - last > 1000) {
+        last = millis();
+        displayTwoLines("IP: " + (WiFi.isConnected() ? WiFi.localIP().toString() : String("…")),
+                        getFormattedTime());
+    }
 }
-

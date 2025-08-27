@@ -1,3 +1,4 @@
+// include/wifi_utils.h
 #pragma once
 
-void connectToWiFi();
+void initWiFi(const char* ssid, const char* password);
