@@ -2,11 +2,9 @@
 #include "pcf8574_driver.h"
 #include <PCF8574.h>
 
-// L’objet PCF8574 est ici, visible dans tout le .cpp
-PCF8574 pcf(&Wire, PCF8574_ADDR);
+static PCF8574 pcf(&Wire, PCF8574_ADDR);
 
 void pcf_init() {
-    Wire.begin(I2C_SDA, I2C_SCL);
     pcf.begin();
 
     pcf.pinMode(PCF_PIN_RELAY_1, OUTPUT);
