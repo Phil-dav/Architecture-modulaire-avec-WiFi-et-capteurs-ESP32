@@ -1,4 +1,4 @@
-Voici la **proposition de mapping GPIO ESP32 (sécurisé au boot)**, entièrement mise à jour selon tes directives, Phil :  
+Voici la **proposition de mapping GPIO ESP32 (sécurisé au boot)** 
 – utilisation du **PCF8574** pour centraliser les E/S logiques  
 – capteurs analogiques et spécifiques connectés directement à l’ESP32  
 – choix de GPIO **stables au démarrage** pour éviter les déclenchements intempestifs des relais ou parasites
